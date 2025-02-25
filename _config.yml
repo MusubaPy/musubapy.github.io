@@ -27,7 +27,12 @@ url: "https://musubapy.github.io"
 
 github:
   username: MusubaPy # change to your GitHub username
+  
+linkedin:
+  username: "roman-zashchitin"
 
+scholar:
+  username: "6LYG_7AAAAAJ"
 # twitter:
 #   username: twitter_username # change to your Twitter username
 
