@@ -7,7 +7,7 @@
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
   url:  'https://www.linkedin.com/in/roman-zashchitin/'                  # Fill with your Linkedin homepage
   
-- type: googlescholar
+- type: scholar
   icon: "fa-brands fa-google-scholar"
   url: 'https://scholar.google.com/citations?user=6LYG_7AAAAAJ&hl=en'
 
