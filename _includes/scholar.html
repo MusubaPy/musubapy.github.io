@@ -1,0 +1,20 @@
+<h2>Publications</h2>
+<ul id="publications">
+  Загрузка...
+</ul>
+
+<script>
+  fetch("https://pub.orcid.org/v3.0/{{ site.orcid }}/works", {
+    headers: { "Accept": "application/json" }
+  })
+  .then(response => response.json())
+  .then(data => {
+    let list = "";
+    data.group.forEach(entry => {
+      let work = entry["work-summary"][0];
+      let title = work.title.title.value;
+      let doi = work["external-ids"]["external-id"].find(id => id["external-id-type"] === "doi");
+      let doiLink = doi ? `https://doi.org/${doi["external-id-value"]}` : "#";
+      list += `<li><a href="${doiLink}" target="_blank">${title}</a></li>`;
+    });
+    document.getElementById("publications").innerHTML =
