@@ -1,6 +1,3 @@
-<div id="publications"></div>
-
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     const orcidId = "0009-0001-7637-5517"; 
     const url = `https://pub.orcid.org/v3.0/${orcidId}/works`;
@@ -112,4 +109,3 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("publications").innerHTML = "⚠ Не удалось загрузить публикации.";
     });
 });
-</script>
