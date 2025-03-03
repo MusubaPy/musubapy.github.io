@@ -2,79 +2,57 @@ document.addEventListener("DOMContentLoaded", function () {
     const orcidId = "0009-0001-7637-5517"; // Замените на ваш ORCID ID
     const url = `https://pub.orcid.org/v3.0/${orcidId}/works`;
 
-    // Добавляем стили в <head>, если они еще не добавлены
-    if (!document.getElementById("orcid-styles")) {
+    // Добавляем стили для таблицы, если они ещё не загружены
+    if (!document.getElementById("orcid-table-styles")) {
         document.head.insertAdjacentHTML(
             "beforeend",
-            `<style id="orcid-styles">
-                #publications {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 15px;
-                    padding: 0;
-                    max-width: 800px;
-                    margin: 20px auto;
+            `<style id="orcid-table-styles">
+                .orcid-table-container {
+                    max-width: 100%;
+                    overflow-x: auto;
+                    margin-top: 20px;
                 }
-                .publication {
-                    background: #f9f9f9;
-                    padding: 15px;
-                    border-radius: 8px;
-                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                .orcid-table {
+                    width: 100%;
+                    border-collapse: collapse;
                 }
-                .publication:hover {
-                    transform: translateY(-3px);
-                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+                .orcid-table th, .orcid-table td {
+                    padding: 10px;
+                    text-align: left;
+                    border-bottom: 1px solid #ddd;
                 }
-                .publication-title {
-                    font-size: 18px;
-                    margin: 0 0 5px;
+                .orcid-table th {
+                    background-color: #f8f9fa;
+                    cursor: pointer;
                 }
-                .publication-title a {
+                .orcid-table tbody tr:hover {
+                    background-color: #f1f1f1;
+                }
+                .orcid-table a {
                     text-decoration: none;
                     color: #0073e6;
                     font-weight: bold;
-                    transition: color 0.2s ease-in-out;
                 }
-                .publication-title a:hover {
+                .orcid-table a:hover {
                     color: #005bb5;
-                }
-                .publication-meta {
-                    font-size: 14px;
-                    color: #666;
-                    margin: 0;
-                }
-                .publication-doi {
-                    font-size: 14px;
-                    color: #444;
-                    margin: 5px 0 0;
-                }
-                .publication-doi a {
-                    color: #e67300;
-                    text-decoration: none;
-                    font-weight: bold;
-                    transition: color 0.2s ease-in-out;
-                }
-                .publication-doi a:hover {
-                    color: #b55a00;
                 }
             </style>`
         );
     }
 
-    // Загружаем публикации
     fetch(url, {
         headers: { "Accept": "application/xml" }
     })
     .then(response => response.text())
     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     .then(data => {
-        let publicationsList = document.getElementById("publications");
-        if (!publicationsList) return;
+        let publicationsContainer = document.getElementById("publications");
+        if (!publicationsContainer) return;
 
-        publicationsList.innerHTML = ""; // Очищаем список перед обновлением
+        publicationsContainer.innerHTML = ""; // Очищаем перед обновлением
 
         let works = data.getElementsByTagName("work:work-summary");
+        let publications = [];
 
         for (let i = 0; i < works.length; i++) {
             let title = works[i].getElementsByTagName("common:title")[0]?.textContent || "Без названия";
@@ -83,25 +61,60 @@ document.addEventListener("DOMContentLoaded", function () {
             let yearElement = works[i].getElementsByTagName("common:year");
             let year = yearElement.length > 0 ? yearElement[0].textContent.trim() : "N/A";
             let urlElement = works[i].getElementsByTagName("common:url");
-            let url = urlElement.length > 0 ? urlElement[0].textContent.trim() : `https://doi.org/${doi}`;
+            let url = urlElement.length > 0 ? urlElement[0].textContent.trim() : (doi ? `https://doi.org/${doi}` : "#");
 
-            let listItem = document.createElement("div");
-            listItem.classList.add("publication");
-
-            listItem.innerHTML = `
-                <div class="publication-content">
-                    <h3 class="publication-title">
-                        <a href="${url}" target="_blank">${title}</a>
-                    </h3>
-                    <p class="publication-meta">Год: <span>${year}</span></p>
-                    ${doi ? `<p class="publication-doi">DOI: <a href="https://doi.org/${doi}" target="_blank">${doi}</a></p>` : ""}
-                </div>
-            `;
-            publicationsList.appendChild(listItem);
+            publications.push({ title, year, doi, url });
         }
+
+        // Сортировка по году (сначала самые новые)
+        publications.sort((a, b) => (b.year !== "N/A" ? parseInt(b.year) : 0) - (a.year !== "N/A" ? parseInt(a.year) : 0));
+
+        // Создаем таблицу
+        let tableHTML = `
+            <div class="orcid-table-container">
+                <table class="orcid-table table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Название</th>
+                            <th onclick="sortTable(1)">Год</th>
+                            <th>DOI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${publications.map(pub => `
+                            <tr>
+                                <td><a href="${pub.url}" target="_blank">${pub.title}</a></td>
+                                <td>${pub.year}</td>
+                                <td>${pub.doi ? `<a href="https://doi.org/${pub.doi}" target="_blank">${pub.doi}</a>` : "—"}</td>
+                            </tr>
+                        `).join("")}
+                    </tbody>
+                </table>
+            </div>
+        `;
+
+        publicationsContainer.innerHTML = tableHTML;
     })
     .catch(error => {
         console.error("Ошибка загрузки ORCID:", error);
         document.getElementById("publications").innerHTML = "⚠ Не удалось загрузить публикации.";
     });
+
+    // Функция сортировки таблицы
+    window.sortTable = function(columnIndex) {
+        let table = document.querySelector(".orcid-table tbody");
+        let rows = Array.from(table.rows);
+        let isAscending = table.getAttribute("data-sort") !== "asc";
+
+        rows.sort((rowA, rowB) => {
+            let cellA = rowA.cells[columnIndex].textContent.trim();
+            let cellB = rowB.cells[columnIndex].textContent.trim();
+            return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+        });
+
+        table.innerHTML = "";
+        rows.forEach(row => table.appendChild(row));
+
+        table.setAttribute("data-sort", isAscending ? "asc" : "desc");
+    };
 });
