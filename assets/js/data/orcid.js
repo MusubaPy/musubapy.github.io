@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const orcidId = "0009-0001-7637-5517"; 
+    const orcidId = "0009-0001-7637-5517";
     const url = `https://pub.orcid.org/v3.0/${orcidId}/works`;
 
     fetch(url, {
@@ -23,40 +23,44 @@ document.addEventListener("DOMContentLoaded", function () {
             let yearElement = works[i].getElementsByTagName("common:year");
             let year = yearElement.length > 0 ? yearElement[0].textContent.trim() : "N/A";
             let urlElement = works[i].getElementsByTagName("common:url");
-            let url = urlElement.length > 0 
+            let pubUrl = urlElement.length > 0 
                 ? urlElement[0].textContent.trim() 
                 : (doi ? `https://doi.org/${doi}` : "#");
 
-            // ORCID обычно не даёт готовую "картинку" для работы, поэтому
-            // можно заглушку:
-            let imageUrl = ""; // Если захотите прикреплять обложку, измените логику
-            // Пример: let imageUrl = "assets/img/placeholder.png";
+            // Если захотите прикреплять обложки, укажите свою логику здесь:
+            let imageUrl = ""; 
+            // Пример: imageUrl = "assets/img/placeholder.png";
             
             let summaryElement = works[i].getElementsByTagName("common:short-description");
             let summary = summaryElement.length > 0 
                 ? summaryElement[0].textContent.trim() 
                 : "Описание отсутствует.";
 
-            publications.push({ title, year, doi, url, summary, imageUrl });
+            publications.push({ 
+                title,
+                year,
+                doi,
+                url: pubUrl,
+                summary,
+                imageUrl 
+            });
         }
 
         // Сортируем по году (сначала самые новые)
         publications.sort((a, b) => {
             let ya = (a.year !== "N/A") ? parseInt(a.year) : 0;
             let yb = (b.year !== "N/A") ? parseInt(b.year) : 0;
-            return yb - ya; 
+            return yb - ya;
         });
 
-        // Формируем карточки
+        // Формируем карточки в стиле Chirpy
         let cardsHTML = publications.map(pub => {
-            // Если нужна колоночная верстка (справа картинка, слева текст),
-            // проверяем, есть ли у нас картинка:
+            // В оригинальном Chirpy, если нет картинки, блок col-md-5 не используется,
+            // а “тело карточки” занимает всю ширину col-md-12.
+            // Если картинка есть, делается col-md-5 + col-md-7.
             let hasImage = pub.imageUrl && pub.imageUrl.trim() !== "";
-
-            // Если картинка есть, используем колонки col-md-5 + col-md-7,
-            // если нет — на всю ширину col-md-12
             let imagePart = "";
-            let colClass  = "col-md-12"; 
+            let cardBodyCol = "12";
 
             if (hasImage) {
                 imagePart = `
@@ -64,18 +68,22 @@ document.addEventListener("DOMContentLoaded", function () {
                       <img src="${pub.imageUrl}" alt="Preview Image">
                     </div>
                 `;
-                colClass = "col-md-7";
+                cardBodyCol = "7";
             }
 
             return `
             <article class="card-wrapper card">
+              <!-- 
+                Обратите внимание на класс: post-preview row g-0 flex-md-row-reverse
+                Он используется в Chirpy для “перевёрнутой” вёрстки, чтобы картинка была справа.
+              -->
               <a href="${pub.url}" class="post-preview row g-0 flex-md-row-reverse">
-
                 ${imagePart}
 
-                <div class="${colClass}">
+                <div class="col-md-${cardBodyCol}">
                   <div class="card-body d-flex flex-column">
                     <h1 class="card-title my-2 mt-md-0">${pub.title}</h1>
+
                     <div class="card-text content mt-0 mb-3">
                       <p>${pub.summary}</p>
                     </div>
@@ -89,8 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         <!-- DOI-ссылка, если есть -->
                         ${
                           pub.doi 
-                          ? `<i class="fas fa-link fa-fw ms-2 me-1"></i>
-                             <a href="https://doi.org/${pub.doi}" target="_blank">DOI</a>`
+                          ? `
+                            <i class="fas fa-link fa-fw ms-2 me-1"></i>
+                            <a href="https://doi.org/${pub.doi}" target="_blank">DOI</a>
+                          `
                           : ""
                         }
                       </div>
