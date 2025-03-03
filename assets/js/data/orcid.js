@@ -37,30 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
         // Генерируем карточки в стиле Chirpy
         let cardsHTML = publications.map(pub => `
             <article class="card-wrapper card">
-                <a href="${pub.url}" class="post-preview row g-0 flex-md-row-reverse">
-                    <div class="col-md-12">
-                        <div class="card-body d-flex flex-column">
-                            <h1 class="card-title my-2 mt-md-0">${pub.title}</h1>
-                            <div class="card-text content mt-0 mb-3">
-                                <p>${pub.summary}</p>
-                            </div>
-                            <div class="post-meta flex-grow-1 d-flex align-items-end">
-                                <div class="me-auto">
-                                    <i class="far fa-calendar fa-fw me-1"></i> 
-                                    <time>${pub.year}</time>
-                                    ${pub.doi ? ` <i class="fas fa-link fa-fw me-1"></i> <a href="https://doi.org/${pub.doi}" target="_blank">DOI</a>` : ""}
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-body">
+                    <h2 class="card-title my-2 mt-md-0">
+                        <a href="${pub.url}" class="stretched-link">${pub.title}</a>
+                    </h2>
+                    <p class="card-text content mt-0 mb-3">${pub.summary}</p>
+                    <div class="post-meta d-flex justify-content-between align-items-center">
+                        <span>
+                            <i class="far fa-calendar fa-fw me-1"></i> <time>${pub.year}</time>
+                        </span>
+                        ${pub.doi ? `<span>
+                            <i class="fas fa-link fa-fw me-1"></i> <a href="https://doi.org/${pub.doi}" target="_blank">DOI</a>
+                        </span>` : ""}
                     </div>
-                </a>
+                </div>
             </article>
         `).join("");
 
         publicationsContainer.innerHTML = cardsHTML;
     })
     .catch(error => {
-        console.error("Error loading ORCID:", error);
-        document.getElementById("publications").innerHTML = "⚠ Failed to load publications.";
+        console.error("Ошибка загрузки ORCID:", error);
+        document.getElementById("publications").innerHTML = "⚠ Не удалось загрузить публикации.";
     });
 });
