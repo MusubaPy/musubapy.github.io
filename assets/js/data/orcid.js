@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Генерируем карточки в стиле Chirpy
         let cardsHTML = publications.map(pub => `
-            <article class="card-wrapper card bg-body shadow-sm mb-4">
+            <article class="card-wrapper card shadow-sm mb-4">
                 <div class="card-body">
                     <h5 class="card-title my-2 mt-md-0">
-                        <a href="${pub.url}" class="stretched-link text-decoration-none text-primary">${pub.title}</a>
+                        <a href="${pub.url}" class="stretched-link text-decoration-none">${pub.title}</a>
                     </h5>
                     <p class="card-text content mt-0 mb-3">${pub.summary}</p>
                     <div class="post-meta d-flex justify-content-between align-items-center">
@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <i class="far fa-calendar fa-fw me-1"></i> <time>${pub.year}</time>
                         </span>
                         ${pub.doi ? `<span>
-                            <i class="fas fa-link fa-fw me-1"></i> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-decoration-none">DOI</a>
+                            <i class="fas fa-link fa-fw me-1"></i> 
+                            <a href="https://doi.org/${pub.doi}" target="_blank" class="text-decoration-none">DOI</a>
                         </span>` : ""}
                     </div>
                 </div>
