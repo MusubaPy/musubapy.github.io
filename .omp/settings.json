@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/src/config/settings-schema.json",
+  "modelRoles": {
+    "default": "github-copilot/claude-sonnet-4.6:high",
+    "slow": "github-copilot/claude-opus-4.6:xhigh",
+    "plan": "github-copilot/claude-opus-4.6:high",
+    "smol": "github-copilot/claude-haiku-4.5:medium",
+    "commit": "github-copilot/claude-haiku-4.5:low",
+    "task": "github-copilot/claude-sonnet-4.6:high"
+  },
+  "skills": {
+    "enablePiUser": true,
+    "enablePiProject": true,
+    "enableClaudeUser": true,
+    "enableClaudeProject": true
+  }
+}
