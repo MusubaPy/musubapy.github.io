@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Quadruped trot contact sequence</title>
+  <desc id="desc">An illustrative top view of a quadruped beside a timing diagram. The left-front and right-hind feet alternate with the right-front and left-hind feet.</desc>
+  <defs>
+    <radialGradient id="background" cx="46%" cy="45%" r="65%">
+      <stop stop-color="#193950"/>
+      <stop offset="1" stop-color="#102235"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#37556a" stroke-width="1" opacity=".3"/>
+    </pattern>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1200v630H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v630H0z"/>
+  <rect x="205" y="96" width="790" height="438" rx="25" fill="#102235" stroke="#38576a" stroke-width="2"/>
+  <path d="M491 124v382" stroke="#38576a" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M350 183v267" stroke="#466478" stroke-width="2" stroke-dasharray="5 9"/>
+    <path d="M338 182l12-12 12 12" stroke="#eef7fb" stroke-width="4"/>
+    <path d="M322 243l-35-37-31 20m122 132 35 37 31-20" stroke="#67d8e9" stroke-width="10"/>
+    <path d="M378 243l35-37 31 20M322 358l-35 37-31-20" stroke="#e9b880" stroke-width="10"/>
+    <rect x="315" y="214" width="70" height="174" rx="22" fill="#1d3c52" stroke="#7b9aad" stroke-width="3"/>
+    <path d="M330 255h40m-40 91h40" stroke="#466478" stroke-width="3"/>
+    <rect x="334" y="270" width="32" height="61" rx="8" fill="#243e52" stroke="#7b9aad" stroke-width="2"/>
+  </g>
+  <g fill="#67d8e9">
+    <circle cx="256" cy="226" r="11"/><circle cx="444" cy="375" r="11"/>
+  </g>
+  <g fill="#e9b880">
+    <circle cx="444" cy="226" r="11"/><circle cx="256" cy="375" r="11"/>
+  </g>
+  <g font-family="system-ui, sans-serif" fill="#eef7fb">
+    <text x="350" y="479" text-anchor="middle" font-size="24" font-weight="600">Quadruped</text>
+    <text x="527" y="166" font-size="31" font-weight="700">Trot contact sequence</text>
+    <g font-size="21" font-weight="600">
+      <text x="538" y="228">LF</text><text x="538" y="280">RF</text>
+      <text x="538" y="332">LH</text><text x="538" y="384">RH</text>
+    </g>
+    <text x="600" y="478" font-size="22">Stance</text>
+    <text x="886" y="478" font-size="22">Time</text>
+  </g>
+  <path d="M585 202v211m86-211v211m86-211v211m86-211v211m86-211v211M585 221h344m-344 52h344m-344 52h344m-344 52h344" fill="none" stroke="#38576a" stroke-width="2"/>
+  <path d="M593 221h71m101 0h71M593 377h71m101 0h71M530 471h52" fill="none" stroke="#67d8e9" stroke-linecap="round" stroke-width="15"/>
+  <path d="M679 273h71m101 0h71M679 325h71m101 0h71" fill="none" stroke="#e9b880" stroke-linecap="round" stroke-width="15"/>
+  <path d="M586 423h344l-9-7m9 7-9 7" fill="none" stroke="#7b9aad" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+</svg>

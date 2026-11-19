@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Map-less navigation with a short prediction horizon</title>
+  <desc id="desc">An illustrative mobile robot uses LiDAR to sense nearby obstacles. A short predicted path curves clear of the obstacles and points towards the goal.</desc>
+  <defs>
+    <radialGradient id="background" cx="46%" cy="45%" r="65%">
+      <stop stop-color="#193950"/>
+      <stop offset="1" stop-color="#102235"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#37556a" stroke-width="1" opacity=".3"/>
+    </pattern>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1200v630H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v630H0z"/>
+  <rect x="205" y="96" width="790" height="438" rx="25" fill="#102235" stroke="#38576a" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M378 377l-29-173a175 175 0 0 1 189 100z" fill="#67d8e9" fill-opacity=".08" stroke="#486f7c" stroke-width="2"/>
+    <path d="M378 377l5-175m-5 175 40-170m-40 170 77-155m-77 155 116-134m-116 134 139-100m-139 100 139-79" stroke="#67d8e9" stroke-opacity=".4" stroke-width="2"/>
+    <path d="M352 278a104 104 0 0 1 120 57m-126-96a144 144 0 0 1 162 79" stroke="#67d8e9" stroke-opacity=".28" stroke-width="2"/>
+    <rect x="499" y="184" width="141" height="142" rx="22" stroke="#e9b880" stroke-opacity=".42" stroke-width="2" stroke-dasharray="6 8"/>
+    <rect x="517" y="202" width="105" height="106" rx="8" fill="#374858" stroke="#e9b880" stroke-width="3"/>
+    <circle cx="517" cy="277" r="4" fill="#67d8e9"/>
+    <circle cx="517" cy="298" r="4" fill="#67d8e9"/>
+    <circle cx="766" cy="450" r="56" stroke="#e9b880" stroke-opacity=".42" stroke-width="2" stroke-dasharray="6 8"/>
+    <circle cx="766" cy="450" r="38" fill="#374858" stroke="#e9b880" stroke-width="3"/>
+    <path d="M381 377C445 408 501 427 567 419S683 381 732 324" stroke="#67d8e9" stroke-width="7"/>
+    <path d="M718 326l14-2-1 16" stroke="#67d8e9" stroke-width="5"/>
+    <path d="M753 299q53-55 110-82" stroke="#7b9aad" stroke-width="3" stroke-dasharray="3 12"/>
+    <circle cx="869" cy="214" r="20" stroke="#eef7fb" stroke-width="3"/>
+    <circle cx="869" cy="214" r="34" stroke="#7b9aad" stroke-width="2"/>
+    <path d="M859 214h20m-10-10v20" stroke="#eef7fb" stroke-width="3"/>
+  </g>
+  <g fill="#102235" stroke="#67d8e9" stroke-width="4">
+    <circle cx="471" cy="412" r="7"/><circle cx="547" cy="421" r="7"/><circle cx="620" cy="405" r="7"/><circle cx="684" cy="370" r="7"/>
+  </g>
+  <g transform="translate(378 377) rotate(26)">
+    <rect x="-34" y="-30" width="63" height="60" rx="15" fill="#1d3c52" stroke="#eef7fb" stroke-width="3"/>
+    <rect x="-20" y="-37" width="31" height="9" rx="3" fill="#7b9aad"/>
+    <rect x="-20" y="28" width="31" height="9" rx="3" fill="#7b9aad"/>
+    <circle r="12" fill="#102235" stroke="#67d8e9" stroke-width="3"/>
+    <path d="M33-12l13 12-13 12z" fill="#eef7fb"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="26" font-weight="600" fill="#eef7fb" text-anchor="middle">
+    <text x="408" y="170">LiDAR scan</text>
+    <text x="869" y="167">Goal</text>
+    <text x="572" y="480">Prediction horizon</text>
+  </g>
+</svg>

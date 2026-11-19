@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Two modes of an adaptive gripper finger</title>
+  <desc id="desc">Conceptual linkage diagrams for precision pinching with the variable-length link locked and adaptive wrapping with it free to change length. The variable-length link is amber.</desc>
+  <defs>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 36V0h36" fill="none" stroke="#67d8e9" opacity=".08"/>
+    </pattern>
+    <linearGradient id="shade" x2="0" y2="1">
+      <stop stop-color="#19364b"/>
+      <stop offset="1" stop-color="#102235"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#shade)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <path d="M600 120v354" fill="none" stroke="#67d8e9" stroke-opacity=".25" stroke-width="2"/>
+  <g font-family="system-ui, sans-serif" text-anchor="middle" fill="#eef7fb">
+    <g font-size="36" font-weight="650">
+      <text x="400" y="149">Precision pinch</text>
+      <text x="800" y="149">Adaptive wrap</text>
+    </g>
+    <g font-size="29" fill="#f6bf73">
+      <text x="400" y="195">Link locked</text>
+      <text x="800" y="195">Link free</text>
+    </g>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(400)">
+      <circle cx="123" cy="278" r="29" fill="#314c5d" stroke="#9bb7c2" stroke-width="3"/>
+      <path d="M-132 408H65m-170 0-14 16m40-16-14 16m40-16-14 16m40-16-14 16m40-16-14 16m40-16-14 16m40-16-14 16" stroke="#648495" stroke-width="3"/>
+      <path d="M-92 408v-31m121 31v-31" stroke="#648495" stroke-width="7"/>
+      <path d="M-92 377-37 262 99 255" stroke="#67d8e9" stroke-width="19"/>
+      <path d="m29 377 7-119" stroke="#f6bf73" stroke-width="10"/>
+      <path d="m31 344 3-49" stroke="#f6bf73" stroke-width="22"/>
+      <g fill="#102235" stroke="#eef7fb" stroke-width="4">
+        <circle cx="-92" cy="377" r="13"/>
+        <circle cx="-37" cy="262" r="10"/>
+        <circle cx="36" cy="258" r="8"/>
+        <circle cx="29" cy="377" r="8"/>
+      </g>
+    </g>
+    <g transform="translate(800)">
+      <path d="M43 382c0-24 17-48 43-48 23 0 49 15 49 40s-25 50-52 49c-25 0-40-19-40-41Z" fill="#314c5d" stroke="#9bb7c2" stroke-width="3"/>
+      <path d="M-132 408H36m-141 0-14 16m40-16-14 16m40-16-14 16m40-16-14 16m40-16-14 16m40-16-14 16" stroke="#648495" stroke-width="3"/>
+      <path d="M-92 408v-31m121 31v-31" stroke="#648495" stroke-width="7"/>
+      <path d="M-92 377-33 267 61 345" stroke="#67d8e9" stroke-width="19"/>
+      <path d="m29 377-16-72" stroke="#f6bf73" stroke-width="10"/>
+      <path d="m25 359-6-27" stroke="#f6bf73" stroke-width="22"/>
+      <path d="m-12 330 10 44m-18-35 8-9 12 4m-12 33 10 7 7-11" stroke="#f6bf73" stroke-width="3"/>
+      <g fill="#102235" stroke="#eef7fb" stroke-width="4">
+        <circle cx="-92" cy="377" r="13"/>
+        <circle cx="-33" cy="267" r="10"/>
+        <circle cx="13" cy="305" r="8"/>
+        <circle cx="29" cy="377" r="8"/>
+      </g>
+    </g>
+  </g>
+</svg>

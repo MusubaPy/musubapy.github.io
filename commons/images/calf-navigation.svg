@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Differential-drive navigation with a high-cost zone</title>
+  <desc>A schematic route detours around a circular high-cost zone. It does not show measured trajectories.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#294359" stroke-width="2"/>
+    </pattern>
+    <radialGradient id="cost">
+      <stop stop-color="#f2a978" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#f2a978" stop-opacity=".06"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#102235"/>
+  <rect x="216" y="104" width="768" height="432" rx="12" fill="url(#grid)" stroke="#35536a" stroke-width="2"/>
+  <circle cx="603" cy="305" r="102" fill="url(#cost)" stroke="#f2a978" stroke-width="3" stroke-dasharray="8 10"/>
+  <circle cx="603" cy="305" r="67" fill="none" stroke="#f2a978" stroke-opacity=".48" stroke-width="2"/>
+  <path d="M361 432C505 451 716 498 778 411C824 345 788 261 842 203" fill="none" stroke="#67d8e9" stroke-width="8" stroke-linecap="round"/>
+  <path d="M819 211L843 201 844 226" fill="none" stroke="#67d8e9" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(361 432) rotate(12)">
+    <rect x="-38" y="-27" width="76" height="54" rx="13" fill="#204257" stroke="#67d8e9" stroke-width="4"/>
+    <path d="M-17-31H15M-17 31H15" stroke="#eef7fb" stroke-width="8" stroke-linecap="round"/>
+    <path d="M6-9L19 0 6 9" fill="none" stroke="#67d8e9" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <circle cx="859" cy="185" r="24" fill="none" stroke="#67d8e9" stroke-width="3"/>
+  <circle cx="859" cy="185" r="9" fill="#67d8e9"/>
+  <g fill="#eef7fb" font-family="system-ui,sans-serif" font-size="30" font-weight="600" text-anchor="middle">
+    <text x="361" y="506">Start</text>
+    <text x="603" y="315">High cost</text>
+    <text x="859" y="147">Goal</text>
+  </g>
+</svg>

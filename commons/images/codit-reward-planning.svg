@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Reward planning for a Pendubot</title>
+  <desc id="desc">A schematic two-link pendulum swings toward upright beside a tiled state space with a sequence of highlighted reward regions. Conceptual illustration, not trial data.</desc>
+  <defs>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#38586e" stroke-opacity=".35"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1l5 3-5 3" fill="none" stroke="#67d8e9" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <path fill="#102235" d="M0 0h1200v630H0z"/>
+  <rect x="86" y="86" width="1028" height="458" rx="30" fill="#152c42" stroke="#38586e" stroke-width="2"/>
+  <rect x="112" y="112" width="976" height="406" rx="18" fill="url(#grid)"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M348 347c-64-33-67-100-24-145" stroke="#67d8e9" stroke-width="4" stroke-dasharray="6 10" marker-end="url(#arrow)"/>
+    <path d="M374 315v-78-82" stroke="#67d8e9" stroke-width="14" stroke-opacity=".35"/>
+    <path d="M374 315l76-48 28-83" stroke="#eef7fb" stroke-width="15"/>
+    <path d="M374 315l-33 72 45 30" stroke="#89a9bc" stroke-width="10" stroke-opacity=".6"/>
+  </g>
+  <g stroke="#67d8e9" stroke-width="4" fill="#102235">
+    <circle cx="374" cy="237" r="10" opacity=".4"/>
+    <circle cx="374" cy="155" r="8" opacity=".4"/>
+    <circle cx="374" cy="315" r="19"/>
+    <circle cx="450" cy="267" r="13"/>
+    <circle cx="478" cy="184" r="9" fill="#67d8e9"/>
+  </g>
+  <circle cx="374" cy="315" r="6" fill="#e4b97a"/>
+  <g transform="translate(626 151)">
+    <rect width="288" height="288" rx="12" fill="#102235" stroke="#38586e" stroke-width="3"/>
+    <path d="M72 0v288M144 0v288M216 0v288M0 72h288M0 144h288M0 216h288" stroke="#38586e" stroke-width="2"/>
+    <g fill="#214454" stroke="#67d8e9" stroke-width="2">
+      <rect x="4" y="220" width="64" height="64" rx="7"/>
+      <rect x="76" y="148" width="64" height="64" rx="7"/>
+      <rect x="148" y="148" width="64" height="64" rx="7"/>
+      <rect x="148" y="76" width="64" height="64" rx="7"/>
+    </g>
+    <rect x="220" y="4" width="64" height="64" rx="7" fill="#453f36" stroke="#e4b97a" stroke-width="3"/>
+    <path d="m36 252 72-72h72v-72l72-72" fill="none" stroke="#67d8e9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <g fill="#67d8e9">
+      <circle cx="36" cy="252" r="5"/>
+      <circle cx="108" cy="180" r="5"/>
+      <circle cx="180" cy="180" r="5"/>
+      <circle cx="180" cy="108" r="5"/>
+    </g>
+  </g>
+  <g fill="#eef7fb" font-family="system-ui, sans-serif" font-size="29" font-weight="650" text-anchor="middle">
+    <text x="391" y="489">Pendubot swing-up</text>
+    <text x="770" y="489">Reward by region</text>
+  </g>
+</svg>

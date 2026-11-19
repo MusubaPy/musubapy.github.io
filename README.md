@@ -43,6 +43,12 @@
 
 To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
 
+### Research posts on this site
+
+Use the [Chirpy post guide](https://chirpy.cotes.page/posts/write-a-new-post/) for front matter and media syntax. In `_posts/`, use `YYYY-MM-DD-<doi-slug>.md` and set `date` to the same day, based on the publisher or preprint record rather than the issue year alone. Keep the DOI slug unchanged when correcting a date.
+
+Follow the CALF reference post's structure: introduce the research question, explain the method, separate theoretical results from simulation and hardware findings, and end with a conclusion and a source-linked BibTeX citation. Set `image.path` to a real preview file under `commons/images/` with `media_subpath: '/commons/images/'` and descriptive `image.alt`. Label original diagrams as schematics rather than experimental data.
+
 ## Contributing
 
 Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
