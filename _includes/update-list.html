@@ -5,6 +5,10 @@
 {% assign all_list = '' | split: '' %}
 
 {% for post in site.posts %}
+  {% if page.layout == 'home' and post.hidden %}
+    {% continue %}
+  {% endif %}
+
   {% assign datetime = post.last_modified_at | default: post.date %}
 
   {% capture elem %}

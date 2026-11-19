@@ -6,6 +6,7 @@ categories: [Blogging, Tutorial]
 tags: [favicon]
 math: true
 mermaid: true
+hidden: true
 ---
 
 The [favicons](https://www.favicon-generator.org/about/) of [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/) are placed in the directory `assets/img/favicons/`{: .filepath}. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
